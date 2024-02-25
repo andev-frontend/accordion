@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="accordion_box">
+            <div class="accordion_title">
+                <h3>Item 1</h3>
+                <span class="icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+            <div class="accordion_content active">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fuga, fugiat ad tempore officia sapiente voluptas sequi. Quas praesentium et, adipisci repellat blanditiis a inventore non dolor aperiam quis sed?</p>
+            </div>
+        </div>
+        <div class="accordion_box">
+            <div class="accordion_title">
+                <h3>Item 2</h3>
+                <span class="icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+            <div class="accordion_content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fuga, fugiat ad tempore officia sapiente voluptas sequi. Quas praesentium et, adipisci repellat blanditiis a inventore non dolor aperiam quis sed?</p>
+            </div>
+        </div>
+        <div class="accordion_box">
+            <div class="accordion_title">
+                <h3>Item 3</h3>
+                <span class="icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+            </div>
+            <div class="accordion_content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fuga, fugiat ad tempore officia sapiente voluptas sequi. Quas praesentium et, adipisci repellat blanditiis a inventore non dolor aperiam quis sed?</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $(".accordion_title").click(function(){
+            if($(this).next(".accordion_content").hasClass("active")){
+                $(this).next(".accordion_content").removeClass("active").slideUp()
+                $(this).children("span").children(".fa-chevron-down").css("transform","rotate(180deg)")
+            }
+            else{
+                $(".accordion_box .accordion_content").removeClass("active").slideUp()
+                $(".accordion_box .icon").children(".fa-chevron-down").css("transform","rotate(180deg)")
+                $(this).next(".accordion_content").addClass("active").slideDown()
+                $(this).children("span").children(".fa-chevron-down").css("transform","rotate(0deg)")
+            }
+        })
+    })
+</script>
+</html>
